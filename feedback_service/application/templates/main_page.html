@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Ranker</title>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit" name="product">Add a product</button>
+      <button type="submit" name="review">Submit a review</button>
+    </form>
+  </body>
+</html>
