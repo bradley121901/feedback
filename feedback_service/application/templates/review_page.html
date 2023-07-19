@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranked Reviews</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-around;
+        }
+
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            color: #ffffff;
+            background-color: #1dbbd6;
+            cursor: pointer;
+        }
+
+        .reviews-list {
+            display: none; 
+            margin-top: 20px;
+        }
+
+        .reviews-list p {
+            margin-bottom: 10px;
+        }
+
+        .ranked-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to your Ranked Reviews</h1>
+        <p>Select the product you want to view its reviews.</p>
+        <form id="productForm">
+            <div class="form-group">
+                <label for="product">Product:</label>
+                <select id="product" name="product">
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="viewButton">View Reviews</button>
+            </div>
+        </form>
+        <div class="reviews-list" id="reviewsList">
+            <h2>All Reviews:</h2>
+            <p>Review 1</p>
+            <p>Review 2</p>
+            <p>Review 3</p>
+        </div>
+        <div class="ranked-button">
+            <p>Rank your reviews to get shortened versions!</p>
+            <button type="button">Ranked</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("viewButton").addEventListener("click", function() {
+            var product = document.getElementById("product").value;
+            var reviewsList = document.getElementById("reviewsList");
+            if (product) {
+                reviewsList.style.display = "block"; 
+            } else {
+                reviewsList.style.display = "none"; 
+            }
+        });
+    </script>
+</body>
+</html>

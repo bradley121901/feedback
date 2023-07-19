@@ -1,13 +1,126 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Feedback Ranker</title>
+    <title>Feedback Finesse - ADD</title>
+    <style>
+      body {
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      textarea,
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: none;
+        color: #ffffff;
+        background-color: #1dbbd6; 
+        cursor: pointer;
+        margin-right: 10px; 
+      }
+
+      .see-reviews {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .see-reviews p {
+        margin-right: 10px;
+      }
+
+      .see-reviews button {
+        background-color: #1dbbd6;
+      }
+    </style>
   </head>
   <body>
-    <form method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit" name="product">Add a product</button>
-      <button type="submit" name="review">Submit a review</button>
-    </form>
+    <div class="container">
+      <h1>Welcome to the Feedback Ranker</h1>
+      <form method="post" action="{% url 'review' %}">
+        {% csrf_token %}
+        <div class="see-reviews">
+          <button type="submit">See Reviews</button>
+        </div> 
+      </form>
+      
+      <div class="form-group">
+        <h2>Add Product</h2>
+        <form method="post">
+          <label for="productname">Product Name:</label>
+          <input type="text" id="productname" name="productname" required>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="form-actions">
+            <button type="submit" name="add_btn">Add Product</button>
+          </div>
+        </form>
+      </div>
+      <div class="form-group">
+        <h2>Submit Review</h2>
+        <form method="post">
+          <label for="productname">Product Name:</label>
+          <select id="productname" name="productname" required>
+            <option value="">Select a product</option>
+            <option value="product1">Product 1</option>
+            <option value="product2">Product 2</option>
+            <option value="product3">Product 3</option>
+          </select>
+          <label for="review">Review:</label>
+          <textarea id="review" name="review" rows="6" required></textarea>
+          <div class="form-actions">
+            <button type="submit" name="submit_btn">Submit Review</button>
+          </div>
+        </form>
+      </div>
+      <div class="form-actions">
+        <button type="button">Sign out</button>
+      </div>
+    </div>
   </body>
 </html>

@@ -17,3 +17,6 @@ def register(request):
     if request.method == "GET":
         return render(request, "register.html")
   
+
+def review_view(request):
+    return render(request, 'review_page.html')

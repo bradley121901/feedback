@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Finesse - Sign up</title>
+    <style>
+      body {
+        background-color: #f1f1f1;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+      p{
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+
+
+      textarea {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px; 
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: none;
+        color: #ffffff;
+        background-color:#1dbbd6;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Create an account and start reading or writing feedback.</p>
+      <div class="form-group">
+        <form method="post">
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" required placeholder = "Enter your email">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required placeholder="Enter your password">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required placeholder ="Confirm your password">
+          <div class="form-actions">
+            <button type="submit" name="register_btn">Register</button>
+            <button type="submit" name="signin_btn">Already have an account? Sign in!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
