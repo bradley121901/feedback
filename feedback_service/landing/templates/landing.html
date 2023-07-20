@@ -115,12 +115,7 @@
         <p>Sign in to view ranked reviews, write reviews or add products.</p>
         <form method="post">
           {% csrf_token %}
-          <div class="form-group">
-            <input type="text" id="username" name="username" required placeholder="Enter your username">
-          </div>
-          <div class="form-group">
-            <input type="password" id="password" name="password" required placeholder="Enter your password">
-          </div>
+          {{form}}
           <div class="form-actions">
             <button type="submit" name="login">Login</button>
             <button type="submit" name="register">Create Account</button>
