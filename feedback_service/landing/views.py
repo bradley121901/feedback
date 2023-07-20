@@ -19,7 +19,7 @@ def index(request):
                 data = form.cleaned_data
                 logusername = data['logusername']
                 logpassword = data['logpassword']
-                print(type(logusername))
+               
 
              #accessing the db
                 connection_string='mongodb+srv://mongoman:mangoeatmongo@cluster0.y3jdu5m.mongodb.net/?retryWrites=true&w=majority'
@@ -78,10 +78,7 @@ def register(request):
             return redirect(f"/feedbackranker")
 
 
-        elif "login_btn" in request.POST:
-            return redirect(f"/feedbackrankers")
+        elif "submit_btn" in request.POST:
+            return redirect(f"/feedbackranker")
 
   
-
-def review_view(request):
-    return render(request, 'review_page.html')

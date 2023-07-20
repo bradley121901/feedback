@@ -78,11 +78,13 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to your Ranked Reviews</h1>
+      <h1>Review</h1>
 
-      <form method="post">
-        {% csrf_token %} {{form.as_p}}
-        <button type="submit" name="review_btn">Review</button>
+      <form method="post" id="productForm">
+        <div class="form-actions">
+          {% csrf_token %} {{form}}
+          <button type="submit" name="enter_btn">Submit</button>
+        </div>
       </form>
 
       <div class="form-group">
@@ -92,7 +94,5 @@
         </form>
       </div>
     </div>
-    <h>All Products</h>
-    {% render_table table %}
   </body>
 </html>

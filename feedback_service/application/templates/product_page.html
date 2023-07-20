@@ -1,3 +1,4 @@
+{% load render_table from django_tables2 %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,13 +6,15 @@
   </head>
   <body>
     <form method="post">
-      <label for="fname">Product Name:</label>
-      <input type="text" id="fname" name="fname" /><br /><br />
-      <label for="fname">First name:</label>
-      <input type="text" id="fname" name="fname" /><br /><br />
       {% csrf_token %} {{ form.as_p }}
-      <button type="button" name="add_btn">Add Product</button>
-      
+      <button type="submit" name="add_btn">Add Product</button>
     </form>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" name="return_btn">Return</button>
+    </form>
+    <h>ALL PRODUCTS</h>
+    {% render_table table %}
   </body>
 </html>

@@ -72,7 +72,7 @@
         display: flex;
         justify-content: flex-start;
         margin-top: 20px;
-        margin-bottom: 140px
+        margin-bottom: 25px
       }
 
       button {
@@ -117,11 +117,14 @@
           {% csrf_token %}
           {{form}}
           <div class="form-actions">
-            <button type="submit" name="login">Login</button>
-            <button type="submit" name="register">Create Account</button>
+            {% csrf_token %}ß
+          <button type="submit" name="login">Login</button>
           </div>
         </form>
-        
-        </div>
+        <form method="post">
+          {% csrf_token %}
+          <button type="submit" name="register">New here? Register Now</button>
+        </form>
+      </div>
   </body>
 </html>

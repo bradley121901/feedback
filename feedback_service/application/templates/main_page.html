@@ -1,3 +1,4 @@
+{% load render_table from django_tables2 %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,7 +35,7 @@
         margin-bottom: 5px;
       }
 
-      input[type="text"],
+      input[type='text'],
       textarea,
       select {
         padding: 10px;
@@ -58,14 +59,14 @@
         border-radius: 4px;
         border: none;
         color: #ffffff;
-        background-color: #1dbbd6; 
+        background-color: #1dbbd6;
         cursor: pointer;
-        margin-right: 10px; 
+        margin-right: 10px;
       }
 
       .see-reviews {
         display: flex;
-        justify-content: flex-start; 
+        justify-content: flex-start;
         align-items: center;
         margin-bottom: 20px;
       }
@@ -82,45 +83,33 @@
   <body>
     <div class="container">
       <h1>Welcome to the Feedback Ranker</h1>
-      <form method="post" action="{% url 'review' %}">
+
+      <form method="post">
         {% csrf_token %}
-        <div class="see-reviews">
-          <button type="submit">See Reviews</button>
-        </div> 
+
+        <div class="form-actions">
+          <button type="submit" name="review_btn">Add Reviews</button>
+        </div>
       </form>
-      
+
       <div class="form-group">
-        <h2>Add Product</h2>
         <form method="post">
-          <label for="productname">Product Name:</label>
-          <input type="text" id="productname" name="productname" required>
+          {% csrf_token %} {{ form.as_p }}
+          <div class="form-actions">
+            <button type="submit" name="add_btn">Add/View Products</button>
+          </div>
+        </form>
+      </div>
+
+      <h>PRODUCT REVIEWS</h>
+      {% render_table table %}
+
+      <form method="post">
+        <div class="form-actions">
           {% csrf_token %}
-          {{ form.as_p }}
-          <div class="form-actions">
-            <button type="submit" name="add_btn">Add Product</button>
-          </div>
-        </form>
-      </div>
-      <div class="form-group">
-        <h2>Submit Review</h2>
-        <form method="post">
-          <label for="productname">Product Name:</label>
-          <select id="productname" name="productname" required>
-            <option value="">Select a product</option>
-            <option value="product1">Product 1</option>
-            <option value="product2">Product 2</option>
-            <option value="product3">Product 3</option>
-          </select>
-          <label for="review">Review:</label>
-          <textarea id="review" name="review" rows="6" required></textarea>
-          <div class="form-actions">
-            <button type="submit" name="submit_btn">Submit Review</button>
-          </div>
-        </form>
-      </div>
-      <div class="form-actions">
-        <button type="button">Sign out</button>
-      </div>
+          <button type="submit" name="submit_btn">Sign out</button>
+        </div>
+      </form>
     </div>
   </body>
 </html>

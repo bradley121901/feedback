@@ -76,10 +76,13 @@
           {% csrf_token %} {{ form }}
           <div class="form-actions">
             <button type="submit" name="register_btn">Register</button>
-            <button type="submit" name="signin_btn">
-              Already have an account? Sign in!
-            </button>
           </div>
+        </form>
+        <form method="post" class="form-actions">
+          {% csrf_token %}
+          <button type="submit" name="submit_btn">
+            Already have an account? Sign in!
+          </button>
         </form>
       </div>
     </div>
