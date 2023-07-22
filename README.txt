@@ -4,6 +4,8 @@ To run this application make sure the necessary dependancies are on your system.
 
 Python 3.8
 Django
+django_tables2
+pymongo
 
 
 Navigate to the /feedback directory containing this README file.

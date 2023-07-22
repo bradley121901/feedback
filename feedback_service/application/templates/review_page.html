@@ -84,7 +84,8 @@
         {% csrf_token %} {{form.as_p}}
         <button type="submit" name="review_btn">Review</button>
       </form>
-
+      <h>All Products</h>
+      {% render_table table %}
       <div class="form-group">
         <form method="post">
           {% csrf_token %}
@@ -92,7 +93,5 @@
         </form>
       </div>
     </div>
-    <h>All Products</h>
-    {% render_table table %}
   </body>
 </html>
